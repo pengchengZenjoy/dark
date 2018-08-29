@@ -14,19 +14,21 @@ GameManager.prototype.start = function() {
     this.lightNum = 0;
     this.curState = ck.GameState.StartAnim;
     this.tip.active = false;
-    var blackMask = this.blackMask;
+    /*var blackMask = this.blackMask;
     var fadeAction = cc.fadeIn(2);
     blackMask.opacity = 0;
     blackMask.runAction(
         cc.sequence(
             fadeAction,
             cc.callFunc(() => {
-                blackMask.opacity = 0;
+                //blackMask.opacity = 0;
                 self.curState = ck.GameState.Playing;
                 self.showTips('start');
             })
         )
-    );
+    );*/
+    self.curState = ck.GameState.Playing;
+    self.showTips('start');
 }
 
 GameManager.prototype.reStart = function() {
@@ -75,9 +77,6 @@ GameManager.prototype.getCurState = function() {
 }
 
 GameManager.prototype._initNode = function() {
-    if(this.fire){
-        return;
-    }
     var canvas = cc.find('Canvas');
     var childrens = canvas.children;
     var length = childrens.length;
@@ -95,9 +94,6 @@ GameManager.prototype._initNode = function() {
         if(node.name.indexOf("fire")>-1){
             this.fire = node;
         }
-        if(node.name.indexOf("fire")>-1){
-            this.fire = node;
-        }
         if(node.name.indexOf("mask")>-1){
             this.blackMask = node;
         }
@@ -105,6 +101,10 @@ GameManager.prototype._initNode = function() {
             this.tip = node;
         }
     }
+}
+
+GameManager.prototype.getFire = function() {
+    return this.fire;
 }
 
 GameManager.prototype.changeState = function(newState) {
@@ -135,7 +135,7 @@ GameManager.prototype.win = function() {
     this.curState = ck.GameState.End;
     this.showTips("Wins");
     setTimeout(function(){
-        this.reStart();
+        this.showContinueLayer();
     }.bind(this), 2000);
 }
 
@@ -151,9 +151,31 @@ GameManager.prototype.fail = function() {
         cc.sequence(
             moveBy,
             cc.callFunc(() => {
-                self.reStart();
+                self.showContinueLayer();
             })
         ));
+}
+
+GameManager.prototype.showContinueLayer = function() {
+    var self = this;
+    if(self.continueLayer == null){
+        cc.loader.loadRes("Prefab/continueLayer", function (err, prefab) {
+            var newNode = cc.instantiate(prefab);
+            cc.director.getScene().addChild(newNode);
+            self.continueLayer = newNode;
+        });
+    }else{
+        this.continueLayer.active = true;
+    }
+}
+
+GameManager.prototype.enterFightScene = function(index) {
+    cc.director.loadScene("fightScene"+index);
+}
+
+GameManager.prototype.enterMainScene = function(index) {
+    this.continueLayer = null;
+    cc.director.loadScene("mainScene");
 }
 
 GameManager.getInstance = function(){
