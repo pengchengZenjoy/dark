@@ -11,7 +11,7 @@ cc.Class({
     },
 
     onLoad: function () {
-        var chapterNum = 2;
+        var chapterNum = 4;
         var btnHeight = 40;
         var distance = 10
         var contentHeight = chapterNum*(btnHeight+distance)+distance;
