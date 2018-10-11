@@ -11,7 +11,7 @@ cc.Class({
     },
 
     onLoad: function () {
-        var chapterNum = 4;
+        var chapterNum = ck.GameManager.MaxSceneNum;
         var btnHeight = 40;
         var distance = 10
         var contentHeight = chapterNum*(btnHeight+distance)+distance;

@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6358642578125,
-      "y": 0.6358642578125,
+      "x": 0.4534160209980101,
+      "y": 0.4534160209980101,
       "z": 1
     },
     "_quat": {
@@ -55,7 +55,7 @@
       "z": 0,
       "w": 1
     },
-    "_localZOrder": 288,
+    "_localZOrder": 155,
     "groupIndex": 0,
     "autoReleaseAssets": false,
     "_id": "e1822205-8217-4481-a818-428a1469dd5c"
@@ -90,7 +90,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 960,
+      "width": 1136,
       "height": 640
     },
     "_anchorPoint": {
@@ -100,7 +100,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 480,
+      "x": 568,
       "y": 320,
       "z": 0
     },
@@ -121,7 +121,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 289,
+    "_localZOrder": 156,
     "groupIndex": 0,
     "_id": "d4VwH+C1NOZaxfgbZgH8tF"
   },
@@ -182,7 +182,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 290,
+    "_localZOrder": 157,
     "groupIndex": 0,
     "_id": "294LHuazdCEJLiBqxfRIY0"
   },
@@ -218,7 +218,7 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 960,
+      "width": 1136,
       "height": 640
     },
     "_fitWidth": false,
@@ -271,7 +271,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 477,
+      "x": 568,
       "y": 352,
       "z": 0
     },
@@ -292,7 +292,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 291,
+    "_localZOrder": 158,
     "groupIndex": 0,
     "_id": "72RrgnCs1BNqymJQRkPTrj"
   },
@@ -363,7 +363,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 292,
+    "_localZOrder": 159,
     "groupIndex": 0,
     "_id": "89fSYcYk9Gqrr+SLW2HX9E"
   },
@@ -424,7 +424,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 293,
+    "_localZOrder": 160,
     "groupIndex": 0,
     "_id": "a20z4np09HxZhLQrMU7yUT"
   },
@@ -559,7 +559,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 295,
+    "_localZOrder": 162,
     "groupIndex": 0,
     "_id": "d3zlQT9ClEJoFHh2HcUvcy"
   },
@@ -624,7 +624,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_localZOrder": 294,
+    "_localZOrder": 161,
     "groupIndex": 0,
     "_id": "905dfTCDZFjotAxTagg8er"
   },

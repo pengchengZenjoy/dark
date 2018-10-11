@@ -135,7 +135,7 @@ GameManager.prototype.win = function() {
     this.curState = ck.GameState.End;
     this.showTips("Wins");
     setTimeout(function(){
-        this.showContinueLayer();
+        this.showContinueLayer(true);
     }.bind(this), 2000);
 }
 
@@ -156,21 +156,38 @@ GameManager.prototype.fail = function() {
         ));
 }
 
-GameManager.prototype.showContinueLayer = function() {
+GameManager.prototype.showContinueLayer = function(isWin) {
     var self = this;
+    var setContinueLayer = function(){
+        if(isWin && self.curFightSceneIndex && self.curFightSceneIndex < ck.GameManager.MaxSceneNum){
+            self.continueLayer.getComponent("continueLayer").setIsWin(true)
+        }else{
+            self.continueLayer.getComponent("continueLayer").setIsWin(false)
+        }
+    }
     if(self.continueLayer == null){
         cc.loader.loadRes("Prefab/continueLayer", function (err, prefab) {
             var newNode = cc.instantiate(prefab);
             cc.director.getScene().addChild(newNode);
             self.continueLayer = newNode;
+            setContinueLayer()
         });
     }else{
-        this.continueLayer.active = true;
+        self.continueLayer.active = true;
+        setContinueLayer()
     }
+}
+
+GameManager.prototype.enterNextFightScene = function() {
+    this.continueLayer = null;
+    var index = this.curFightSceneIndex+1;
+    cc.director.loadScene("fightScene"+index);
+    this.curFightSceneIndex = index
 }
 
 GameManager.prototype.enterFightScene = function(index) {
     cc.director.loadScene("fightScene"+index);
+    this.curFightSceneIndex = index
 }
 
 GameManager.prototype.enterMainScene = function(index) {
@@ -190,5 +207,8 @@ if(!window.ck){
 }
 
 ck.GameManager = GameManager;
+
+ck.GameManager.MaxSceneNum = 4;
+
 ck.GameState = GameState;
 module.exports = GameManager;
